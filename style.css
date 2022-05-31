@@ -1,10 +1,12 @@
 /*======== /Global/ ========*/
 :root {
-  --baseText-color: #012900;
+  --baseText-color: #000000;
   --altText-color: #ffffff;
   --baseColor-background:#F2890D;
   --baseColor-one: #1180E6; 
   --baseColor-two: #b0a3a3;
+  --gradiente-one: linear-gradient(135deg, #0d59a0, var(--baseColor-one), #0d59a0);
+  --gradiente-two: linear-gradient(135deg, #fd931a, var(--baseColor-background), rgb(210, 112, 0));
 
   --title-squada: 'Squada One', cursiva; 
   --title-start: 'Press Start 2P', cursive; 
@@ -29,7 +31,7 @@ body {
   justify-content: center;
   align-items: center;
   
-  background: linear-gradient(180deg, #f8a343, var(--baseColor-background), #b76406);
+  background: linear-gradient(135deg, #0d59a0, var(--baseColor-one), #0d59a0);
   background-size: 200% 200%;
 }
 
@@ -45,12 +47,13 @@ body {
   justify-content: center;
   align-items: center;
 
-  background-color: var(--baseColor-one);
+  background: linear-gradient(135deg, #fd931a, var(--baseColor-background), rgb(210, 112, 0));
   border-radius: 20px;
 }
 
 span {
   font-family: var(--title-squada);
+  color: var(--altText-color);
   font-size: 70px;
   font-weight: 400;
 }
@@ -85,6 +88,11 @@ main {
 
 div.section.game {
   justify-content: space-between;
+}
+
+img {
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .input-box {
@@ -137,13 +145,13 @@ a {
   font-size: 18px;
   font-family: var(--title-start);
   
-  background-color: var(--baseColor-background);
+  background: var(--gradiente-two);
   color: var(--altText-color);
 }
 
 a:last-child{
   /* margin-left: 106px; */
-  background-color: var(--baseColor-one);
+  background: var(--gradiente-one);
 }
 
 .divider {
