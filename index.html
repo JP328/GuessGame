@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maia's Game</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="titleBox">
+      <span>O JOGO</span>
+    </div>
+    <main>
+      <div class="section" id="begin">
+        <img src="/image 1.svg" alt="" />
+
+        <div class="input-box">
+          <label for="nick">Nick:</label>
+          <input type="text" name="nick" id="nick" />
+        </div>
+        <div class="input-box">
+          <label for="intervalo">Intervalo:</label>
+          <select name="intervalo" id="intervalo">
+            <option value="10">Modo Fácil: 1 ao 10</option>
+            <option value="100">Modo Normal: 1 ao 100</option>
+            <option value="1000">Modo Difícil: 1 ao 1000</option>
+          </select>
+        </div>
+
+        <a href="#" onclick="resetGame(), startGame()">COMEÇAR</a>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section game">
+        <p id="message"></p>
+        <div class="input-box">
+          <label for="guess">Digite um Número:</label>
+          <input type="number" name="guess" id="guess" />
+        </div>
+
+        <a href="#" onclick="tryGuess(), numberOfTry()">JOGAR</a>
+
+        <div>
+          <p><strong id="advice"></strong></p>
+          <p id="chances"></p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <footer>
+        <h3>Guess Game</h3>
+        <h3>Feito por João Pedro da Maia.</h3>
+        <h3>Obrigado por tudo BRQ! 💙</h3>
+      </footer>
+    </footer>
+    <script src="/script.js"></script>
+  </body>
+</html>

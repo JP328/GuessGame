@@ -1,0 +1,201 @@
+/*======== /Global/ ========*/
+:root {
+  --baseText-color: #012900;
+  --altText-color: #ffffff;
+  --baseColor-background:#F2890D;
+  --baseColor-one: #1180E6; 
+  --baseColor-two: #b0a3a3;
+
+  --title-squada: 'Squada One', cursiva; 
+  --title-start: 'Press Start 2P', cursive; 
+  --title-roboto: 'Roboto', sans;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*======== /Main/ ========*/
+body {
+  overflow-x: hidden;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  background: linear-gradient(180deg, #f8a343, var(--baseColor-background), #b76406);
+  background-size: 200% 200%;
+}
+
+
+#titleBox {
+  width: 258px;
+  height: 150px;
+
+  position: absolute;
+  top: 7%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--baseColor-one);
+  border-radius: 20px;
+}
+
+span {
+  font-family: var(--title-squada);
+  font-size: 70px;
+  font-weight: 400;
+}
+
+
+main {
+  /* overflow-y: hidden; */
+  background-color: var(--altText-color);
+  width: 75vw;
+  height: 645px;
+ 
+  margin-top: 150px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px rgb(0, 0, 0);
+
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.section {
+  position: relative;
+  display: flex;
+
+  align-items:  center;
+  flex-direction: column;
+  
+  width: 100%;
+  height: auto;
+  padding: 0 20px 0 48px;
+}
+
+div.section.game {
+  justify-content: space-between;
+}
+
+.input-box {
+  display: flex;
+  align-items: baseline; 
+  flex-direction: column;
+  margin: 10px 0 51px 0;
+}
+
+label {
+  font-family: var(--title-start);
+  font-size: 18px;
+
+  margin-bottom: 17px;
+}
+
+input, select {
+  width: 350px;
+  height: 42px;
+
+  font-size: 18px;
+
+  text-align: center;
+
+  border: 2px solid var(--baseColor-two);
+}
+
+p{
+  text-align: center;
+  font-size: 25px;
+  font-family: var(--title-roboto)
+}
+
+#message {
+  margin-bottom: 45px;
+}
+
+a {
+  width: 200px;
+  height: 42px;
+  padding: 12px 37px;
+
+  margin-bottom: 61px;
+  border: 3px solid black;
+  border-radius: 21px;
+  
+  text-decoration: none;
+  text-align: center;
+
+  font-size: 18px;
+  font-family: var(--title-start);
+  
+  background-color: var(--baseColor-background);
+  color: var(--altText-color);
+}
+
+a:last-child{
+  /* margin-left: 106px; */
+  background-color: var(--baseColor-one);
+}
+
+.divider {
+  height: 430px;
+  width: 10px;
+  background-color: var(--baseColor-two);
+}
+
+footer {
+  margin: 40px 0;
+  text-align: center;
+  font-family: var(--title-roboto);
+  font-size: 16px;
+}
+
+h3 {
+  color: var(--altText-color);
+  text-shadow: 2px 2px 3px #000000;
+  margin: 15px 0;
+}
+/*======== /Mobile/ ========*/
+/* @media (max-width)  {} */
+
+@media (max-width: 768px) {
+  
+  #titleBox {
+    top: 10%;
+  }
+  main {
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .section {
+    padding: 0;
+    margin-top: 96px;
+  }
+
+  .divider {
+    /* height: 10px;
+    width: 430px; */
+    display: none;
+  }
+}
+
+@media (max-width: 428px) {
+  label {
+    font-size: 16px;
+  }
+
+  input, select {
+    width: 300px;
+  }
+}
