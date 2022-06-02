@@ -1,4 +1,4 @@
-const nick = document.getElementById('nick')
+const nick = document.querySelector('#nick')
 const message = document.querySelector('#message')
 const intervalo = document.querySelector('#intervalo')
 const advice = document.querySelector('#advice')
@@ -6,14 +6,19 @@ const chances = document.querySelector('#chances')
 const guess = document.querySelector('#guess')
 
 let GuessNumber
-let chancesNumber = 3
+let chancesNumber = 2
 
 const resetGame = () => {
-  let chancesNumber = 3
-  chances.value = ''
-  advice.value = ''
-  message.value = ''
-  GuessNumber = undefined
+  console.log(GuessNumber)
+  if (GuessNumber != undefined) {
+    chancesNumber = 2
+    chances.textContent = ''
+    advice.textContent = ''
+    message.textContent = ''
+    guess.value = ''
+    GuessNumber = undefined
+    console.log(GuessNumber)
+  }
 }
 
 const startGame = () => {
@@ -24,20 +29,24 @@ const startGame = () => {
     message.innerHTML = `Olá <strong>${nick.value}</strong>, vamos jogar!<br/>
     De acordo com a opçao de intervalo que você escolheu, descubra o número.`
   }
+  GuessNumber === undefined
+    ? (GuessNumber = Math.round(Math.random() * intervalo.value))
+    : ''
 }
 
 const tryGuess = () => {
   let situation
-  // let chancesNumber = 3
-  GuessNumber === undefined
-    ? (GuessNumber = Math.round(Math.random() * intervalo.value))
-    : ''
+  // GuessNumber === undefined
+  //   ? (GuessNumber = Math.round(Math.random() * intervalo.value))
+  //   : ''
 
   console.log(GuessNumber)
+
   const logic =
     guess.value > GuessNumber
       ? (situation = 'O número é maior!')
       : (situation = 'O número é menor')
+
   guess.value == GuessNumber
     ? (situation = 'Parabéns, você conseguiu adivinhar!')
     : logic
