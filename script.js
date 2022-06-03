@@ -1,5 +1,4 @@
 //--------Text--------//
-
 const message = document.querySelector('#message')
 const advice = document.querySelector('#advice')
 const chances = document.querySelector('#chances')
@@ -7,7 +6,6 @@ const winner = document.querySelector('#winner')
 const feedback = document.querySelector('#feedback')
 
 //--------Inputs--------//
-
 const intervalo = document.querySelector('#intervalo')
 const nick = document.querySelector('#nick')
 const guess = document.querySelector('#guess')
@@ -35,18 +33,24 @@ const startGame = () => {
   GuessNumber === undefined
     ? (GuessNumber = Math.round(Math.random() * intervalo.value))
     : ''
+
+  GuessNumber === 0 ? (GuessNumber += 1) : ''
 }
 
 const tryGuess = () => {
   console.log(GuessNumber)
-  guess.value == GuessNumber ? winnerPopUp() : numberOfTry()
+  const rules = guess.value == GuessNumber ? winnerPopUp() : numberOfTry()
+  GuessNumber != undefined
+    ? rules
+    : alert(
+        'Antes de começar, cadastre seu nome de jogador e defina um modo de jogo!'
+      )
 }
 
 const winnerPopUp = () => {
   togglePopUp()
   winner.innerHTML = `<strong>Parabéns ${nick.value}, Você conseguiu adivinhar!<strong/>`
   feedback.textContent = `Continue jogando, explore os modos mais difíceis e não pare até ficar craque nesse jogo!`
-  resetGame()
 }
 
 function numberOfTry() {
