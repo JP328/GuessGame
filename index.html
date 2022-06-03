@@ -25,15 +25,16 @@
   </head>
   <body>
     <div id="titleBox">
-      <h1>O JOGO</h1>
+      <h1>Guess Number</h1>
     </div>
     <main>
-      <div class="section" id="begin">
+      <div class="section">
         <img src="/g5985.png" alt="" />
 
         <div class="input-box">
           <label for="nick">Nick:</label>
           <input type="text" name="nick" id="nick" />
+          <!-- <p>Coloque um nome de jogador!</p> -->
         </div>
         <div class="input-box">
           <label for="intervalo">Intervalo:</label>
@@ -44,7 +45,7 @@
           </select>
         </div>
 
-        <a href="#" onclick="resetGame(), startGame()">COMEÇAR</a>
+        <a href="#" onclick="startGame()">COMEÇAR</a>
       </div>
 
       <div class="divider"></div>
@@ -53,10 +54,10 @@
         <p id="message"></p>
         <div class="input-box">
           <label for="guess">Digite um Número:</label>
-          <input type="number" name="guess" id="guess" />
+          <input type="number" name="guess" id="guess" disabled />
         </div>
 
-        <a href="#" onclick="tryGuess(), numberOfTry()">JOGAR</a>
+        <a href="#" onclick="tryGuess()">JOGAR</a>
 
         <div>
           <p><strong id="advice"></strong></p>
@@ -66,14 +67,16 @@
     </main>
 
     <div class="popUp">
-      <p>Ganhou!</p>
+      <div class="popUpMessage">
+        <p id="winner"></p>
+        <p id="feedback"></p>
+        <a href="#" class="playAgain" onclick="togglePopUp()">Jogar De novo</a>
+      </div>
     </div>
     <footer>
-      <footer>
-        <h3>Guess Game</h3>
-        <h3>Feito por João Pedro da Maia.</h3>
-        <h3>Obrigado por tudo BRQ! 💙</h3>
-      </footer>
+      <h3>Guess Game</h3>
+      <h3>Feito por João Pedro da Maia.</h3>
+      <h3>Obrigado por tudo BRQ! 💙</h3>
     </footer>
     <script src="/script.js"></script>
   </body>
