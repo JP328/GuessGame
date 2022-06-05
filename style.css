@@ -1,13 +1,22 @@
 /*======== /Global/ ========*/
 :root {
+ /*------------Standard Variables----------------*/ 
   --baseText-color: #000000;
   --altText-color: #ffffff;
+
+ /*------------Standard Theme----------------*/ 
   --baseColor-background:#F2890D;
   --baseColor-one: #1180E6; 
   --baseColor-two: #b0a3a3;
-  --gradiente-one: linear-gradient(135deg, #0d59a0, var(--baseColor-one), #0d59a0);
-  --gradiente-two: linear-gradient(135deg, var(--baseColor-background), #ffab19, var(--baseColor-background));
+  --gradient-one: linear-gradient(135deg, #0d59a0, var(--baseColor-one), #0d59a0);
+  --gradient-two: linear-gradient(135deg, var(--baseColor-background), #ffab19, var(--baseColor-background));
 
+ /*------------Dark Theme----------------*/ 
+  --DarkTheme-background: rgb(9, 39, 73);
+  --DarkTheme-colorOne: rgb(46, 51, 78);
+  --DarkTheme-colorTwo: #c56900;
+
+ /*------------Text Variables----------------*/ 
   --title-squada: 'Squada One', cursiva; 
   --title-start: 'Press Start 2P', cursive; 
   --title-roboto: 'Roboto', sans;
@@ -19,25 +28,43 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 93.75%; /* 15px */
+}
+
 /*======== /Main/ ========*/
 body {
   overflow-x: hidden;
 
   width: 100%;
   height: 100%;
+  padding-top: 9rem;
+
   display: flex;
 
   flex-direction: column;
   justify-content: center;
   align-items: center;
   
-  background: var(--gradiente-one);
+  background: var(--gradient-one);
 }
 
+.switch-Theme {
+  width: 14rem;
+
+  display: flex;
+  align-self: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+}
 
 #titleBox {
-  width: 258px;
-  height: 150px;
+  width: 17.2rem;
+  height: 10rem;
 
   position: absolute;
   top: 7%;
@@ -46,8 +73,8 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: var(--gradiente-two);
-  border-radius: 20px;
+  background: var(--gradient-two);
+  border-radius: 1.34rem;
 
   animation: spinner 2s linear;
 }
@@ -58,27 +85,25 @@ h1 {
 
   text-align: center;
 
-  font-size: 70px;
+  font-size: 4.67rem;
   font-weight: 400;
 }
 
 
 main {
-  /* overflow-y: hidden; */
   background-color: var(--altText-color);
   width: 75vw;
-  height: 645px;
+  height: 40rem;
  
-  margin-top: 150px;
-  border-radius: 20px;
+  border-radius: 1.34rem;
   box-shadow: 1px 1px 10px rgb(0, 0, 0);
 
   display: flex;
   align-items: center;
-  padding: 0 12px;
+  padding: 4rem 0.8rem 0;
 }
 
-.section {
+section {
   display: flex;
 
   align-items:  center;
@@ -86,11 +111,11 @@ main {
   
   width: 100%;
   height: auto;
-  padding: 0 20px 0 48px;
+  padding: 0 1.34rem 0 3.2rem;
   animation: fade 1s linear;
 }
 
-div.section.game {
+#game {
   justify-content: space-between;
 }
 
@@ -98,25 +123,29 @@ div.section.game {
   display: flex;
   align-items: baseline; 
   flex-direction: column;
-  margin: 10px 0 51px 0;
+  margin: 0.67rem 0 3.4rem 0;
 }
 
-label {
+label.description {
   font-family: var(--title-start);
-  font-size: 18px;
+  font-size: 1.2rem;
 
-  margin-bottom: 17px;
+  margin-bottom: 1.13rem;
 }
 
 input, select {
-  width: 350px;
-  height: 42px;
+  width: 23.34rem;
+  height: 2.8rem;
 
-  font-size: 18px;
+  font-size: 1.2rem;
 
   text-align: center;
 
   border: 2px solid var(--baseColor-two);
+}
+
+.switch-Theme > input {
+  width: 1.5rem;
 }
 
 input:disabled, select:disabled {
@@ -125,35 +154,35 @@ input:disabled, select:disabled {
 
 p{
   text-align: center;
-  font-size: 25px;
+  font-size: 1.67rem;
   font-family: var(--title-roboto);
 }
 
 #message {
-  margin-bottom: 45px;
+  margin-bottom: 3rem;
 }
 
 a {
-  min-width: 200px;
+  min-width: 13.33rem;
   height: auto;
-  padding: 12px 37px;
+  padding: 0.8rem 2.47rem;
 
-  margin-bottom: 61px;
+  margin-bottom: 4.07rem;
   border: 3px solid black;
-  border-radius: 21px;
+  border-radius: 1.4rem;
   
   text-decoration: none;
   text-align: center;
 
-  font-size: 18px;
+  font-size: 1.2rem;
   font-family: var(--title-start);
   
-  background: var(--gradiente-two);
+  background: var(--gradient-two);
   color: var(--altText-color);
 }
 
 a:last-child{
-  background: var(--gradiente-one);
+  background: var(--gradient-one);
 }
 
 a.playAgain {
@@ -161,22 +190,22 @@ a.playAgain {
 }
 
 .divider {
-  height: 430px;
-  width: 10px;
+  height: 30.67rem;
+  width: 0.66rem;
   background-color: var(--baseColor-two);
 }
 
 footer {
-  margin: 40px 0;
+  margin: 2.66rem 0;
   text-align: center;
   font-family: var(--title-roboto);
-  font-size: 16px;
+  font-size: 1.07rem;
 }
 
 h3 {
   color: var(--altText-color);
   text-shadow: 2px 2px 3px #000000;
-  margin: 15px 0;
+  margin: 1rem 0;
 }
 
 .popUp {
@@ -187,8 +216,6 @@ h3 {
   position: fixed;
   z-index: 100;
   top: 0;
-
-  background: rgba(0, 0, 0, 0.5);
   
   width: 100%;
   height: 100%;
@@ -196,7 +223,14 @@ h3 {
   visibility: hidden;
 }
 
-.popUp.active {
+.winner {
+  background: rgba(0, 133, 27, 0.4);
+  visibility: visible;
+
+}
+
+.loser {
+  background: rgba(133, 4, 0, 0.4);
   visibility: visible;
 }
 
@@ -206,17 +240,17 @@ h3 {
   justify-content: space-evenly;
   flex-direction: column;
 
-  width: 560px;
-  height: 360px;
-  padding: 0 30px;
+  width: 37.34rem;
+  height: 24rem;
+  padding: 0 2rem;
 
 
   background: var(--altText-color);
   color: var(--baseText-color);
-  border-radius: 21px;
+  border-radius: 1.4rem;
 }
 
-.popUpMessage.animation {
+.animation {
   animation: scale 500ms linear;
 }
 
@@ -276,12 +310,12 @@ h3 {
     justify-content: center;
     flex-wrap: wrap;
     height: auto;
-    padding: 0 12px 30px;
+    padding: 0 0.8rem 2rem;
   }
 
-  .section {
+  section {
     padding: 0;
-    margin-top: 96px;
+    margin-top: 6.4rem;
   }
 
   .divider {
@@ -290,11 +324,19 @@ h3 {
 }
 
 @media (max-width: 428px) {
-  label {
-    font-size: 16px;
+  label.description {
+    font-size: 1.06rem;
   }
 
   input, select {
-    width: 280px;
+    width: 18.6rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+  }
+
+  .popUpMessage {
+    width: 25rem;
   }
 }
