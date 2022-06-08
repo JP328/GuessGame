@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="icon" type="image/png" href="assets/img/brackets.png" /> -->
-    <title>Maia's Game</title>
+    <link rel="icon" type="image/png" href="/images/console.png" />
+    <title>Guess Game</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,23 +50,31 @@
 
     <main>
       <section>
-        <img src="/g5985.png" alt="" />
+        <img src="/images/g5985.png" alt="" />
 
         <div class="input-box">
           <label class="description" for="nick">Nick:</label>
-          <input type="text" name="nick" id="nick" />
+          <input
+            type="text"
+            name="nick"
+            id="nick"
+            autocomplete="off"
+            placeholder="Digite seu apelido"
+          />
           <!-- <p>Coloque um nome de jogador!</p> -->
         </div>
         <div class="input-box">
-          <label class="description" for="intervalo">Intervalo:</label>
-          <select name="intervalo" id="intervalo">
+          <label class="description" for="interval">Intervalo:</label>
+          <select name="interval" id="interval">
             <option value="10">Modo Fácil: 1 ao 10</option>
             <option value="100">Modo Normal: 1 ao 100</option>
             <option value="1000">Modo Difícil: 1 ao 1000</option>
           </select>
         </div>
 
-        <a href="#game" onclick="startGame()" id="start">COMEÇAR</a>
+        <a href="#titleBoxs" onclick="startGame()" id="start" class="button"
+          >COMEÇAR</a
+        >
       </section>
 
       <div class="divider"></div>
@@ -78,11 +86,11 @@
           <input type="number" name="guess" id="guess" disabled />
         </div>
 
-        <a href="#game" onclick="tryGuess()">JOGAR</a>
+        <a href="#title" onclick="tryGuess()" class="button">JOGAR</a>
 
         <div>
           <p><strong id="advice"></strong></p>
-          <p id="chances">Você tem 3 tentativas de acertar!</p>
+          <p id="chances"></p>
         </div>
       </section>
     </main>
@@ -92,16 +100,25 @@
         <p class="winnerOrLoser"></p>
         <p class="feedback"></p>
 
-        <a href="#" class="playAgain" onclick="togglePopUp(), resetGame()"
+        <a
+          href="#"
+          class="button playAgain"
+          onclick="togglePopUp(), resetGame()"
           >Jogar De novo</a
         >
       </div>
     </div>
 
     <footer>
-      <h3>Guess Game</h3>
-      <h3>Feito por João Pedro da Maia.</h3>
-      <h3>Obrigado por tudo BRQ! 💙</h3>
+      <h2 class="footerText">Guess Game</h2>
+      <a
+        href="https://www.linkedin.com/in/jo%C3%A3o-pedro-da-maia-511242205/"
+        class="footerText"
+        >Feito por João Pedro da Maia.</a
+      >
+      <a href="https://www.linkedin.com/company/brq/" class="footerText"
+        >Obrigado por tudo BRQ!🧡​</a
+      >
     </footer>
 
     <script src="/script.js"></script>

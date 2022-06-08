@@ -1,17 +1,6 @@
 //--------Text--------//
-const message = document.querySelector('#message')
-const advice = document.querySelector('#advice')
-const chances = document.querySelector('#chances')
 const winnerOrLoser = document.querySelector('.winnerOrLoser')
 const feedback = document.querySelector('.feedback')
-
-//--------Inputs--------//
-const intervalo = document.querySelector('#intervalo')
-const nick = document.querySelector('#nick')
-const guess = document.querySelector('#guess')
-
-//--------Button--------//
-const start = document.querySelector('#start')
 
 //--------Open and Close PopUp--------//
 const togglePopUp = value => {
@@ -33,17 +22,23 @@ const togglePopUp = value => {
 
 //--------Js Variable--------//
 let GuessNumber
-let chancesNumber = 2
+let chancesNumber
 
 //--------Js Functions--------//
 const startGame = () => {
+  const setChances = () => {
+    interval.value == 100 ? (chancesNumber = 4) : (chancesNumber = 6)
+  }
+  interval.value == 10 ? (chancesNumber = 2) : setChances()
+
   if (nick.value == '') {
     alert('Por favor, preencha um nome valido')
     throw new Error('Por favor, preencha um nome valido')
   } else {
     message.innerHTML = `Olá <strong>${nick.value}</strong>, vamos jogar!<br/>
     De acordo com a opção de intervalo que você escolheu, descubra o número.`
-    GuessNumber = Math.round(Math.random() * intervalo.value)
+    chances.textContent = `Você tem ${chancesNumber + 1} tentativas de acertar!`
+    GuessNumber = Math.round(Math.random() * interval.value)
     disabledToggle()
   }
 
@@ -70,21 +65,45 @@ const winnerPopUp = () => {
 const loserPopup = () => {
   togglePopUp(3)
   winnerOrLoser.innerHTML = `<strong>Suas tentativas acabaram! O número que você 
-  estava buscando era ${GuessNumber}.<strong/>`
+  estava buscando era ${GuessNumber}!<strong/>`
   feedback.textContent = `${nick.value} não desanime, continue tentando! Depois de 
   algumas partidas você ficará craque nesse jogo!`
 }
 
-const numberOfTry = () => {
-  // logica da dica = GuessNumber - guess.value + Math.round(Math.random() * 50
-
+const hint = () => {
   let situation
-  guess.value > GuessNumber
-    ? (situation = 'O número é maior!')
-    : (situation = 'O número é menor')
+
+  const standardHint = () => {
+    guess.value > GuessNumber
+      ? (situation = 'O número que você chutou é maior!')
+      : (situation = 'O número que você chutou é menor!')
+  }
+
+  const hintOne = () => {
+    let number = GuessNumber - Math.round(Math.random() * 50)
+    number <= 0 ? (number = 1) : false
+
+    return (situation = `O número está entre ${number} e ${guess.value - 1}`)
+  }
+
+  const hintTwo = () => {
+    let number = GuessNumber + Math.round(Math.random() * 50)
+    number > interval.value ? (number = interval.value) : false
+
+    return (situation = `O número está entre ${guess.value} e ${number}`)
+  }
+
+  const GreatHint = () => {
+    guess.value > GuessNumber ? hintOne() : hintTwo()
+  }
+
+  const gameMode = interval.value == 10 ? standardHint() : GreatHint()
 
   advice.innerHTML = situation
+}
 
+const numberOfTry = () => {
+  hint()
   console.log(GuessNumber)
 
   chancesNumber > 0
@@ -108,7 +127,16 @@ const resetGame = () => {
 
 const disabledToggle = () => {
   guess.toggleAttribute('disabled')
-  intervalo.toggleAttribute('disabled')
+  interval.toggleAttribute('disabled')
   nick.toggleAttribute('disabled')
   start.toggleAttribute('hidden')
+}
+
+//--------Getting GitHub Infos--------//
+const getGitHubProfileInfos = () => {
+  const url = `https://api.github.com/users/${GitHubInfo.value}`
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {})
 }

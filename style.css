@@ -162,7 +162,7 @@ p{
   margin-bottom: 3rem;
 }
 
-a {
+.button {
   min-width: 13.33rem;
   height: auto;
   padding: 0.8rem 2.47rem;
@@ -181,12 +181,17 @@ a {
   color: var(--altText-color);
 }
 
-a:last-child{
+.button:last-child{
   background: var(--gradient-one);
 }
 
-a.playAgain {
+.button.playAgain {
   margin-bottom: 0;
+}
+
+.button:hover {
+  min-width: 13rem;
+  font-size: 1.1rem;
 }
 
 .divider {
@@ -202,8 +207,9 @@ footer {
   font-size: 1.07rem;
 }
 
-h3 {
+.footerText {
   color: var(--altText-color);
+  text-decoration: none;
   text-shadow: 2px 2px 3px #000000;
   margin: 1rem 0;
 }
